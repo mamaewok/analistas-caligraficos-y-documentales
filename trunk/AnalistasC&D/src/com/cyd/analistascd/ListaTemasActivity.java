@@ -1,0 +1,81 @@
+package com.cyd.analistascd;
+
+import java.util.ArrayList;
+
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+public class ListaTemasActivity extends Activity {
+
+	private ListView lista;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.listado_temas);
+
+		ArrayList<ListaEntrada> datos = new ArrayList<ListaEntrada>();
+
+		datos.add(new ListaEntrada(R.drawable.psico, "La página",
+				"Curso de iniciación a la pricografología"));
+		datos.add(new ListaEntrada(R.drawable.pericia, "La línea",
+				"Curso de iniciación a la pericia caligráfica"));
+		datos.add(new ListaEntrada(R.drawable.document, "La palabra ",
+				"Curso de iniciación a la documentoscopia"));
+		datos.add(new ListaEntrada(R.drawable.psico, "La letra ",
+				"Curso de iniciación a la documentoscopia"));
+		datos.add(new ListaEntrada(R.drawable.pericia, "Las demás cosas ",
+				"Curso de iniciación a la documentoscopia"));
+
+		lista = (ListView) findViewById(R.id.ListView_listado);
+		lista.setAdapter(new ListaAdaptador(this, R.layout.entrada_temas, datos) {
+			@Override
+			public void onEntrada(Object entrada, View view) {
+				if (entrada != null) {
+					TextView texto_superior_entrada = (TextView) view
+							.findViewById(R.id.textView_superior);
+					if (texto_superior_entrada != null)
+						texto_superior_entrada.setText(((ListaEntrada) entrada)
+								.get_textoEncima());
+
+					TextView texto_inferior_entrada = (TextView) view
+							.findViewById(R.id.textView_inferior);
+					if (texto_inferior_entrada != null)
+						texto_inferior_entrada.setText(((ListaEntrada) entrada)
+								.get_textoDebajo());
+
+					ImageView imagen_entrada = (ImageView) view
+							.findViewById(R.id.imageView_imagen);
+					if (imagen_entrada != null)
+						imagen_entrada
+								.setImageResource(((ListaEntrada) entrada)
+										.get_idImagen());
+				}
+			}
+		});
+
+		lista.setOnItemClickListener(new OnItemClickListener() {
+			@Override
+			public void onItemClick(AdapterView<?> pariente, View view,
+					int posicion, long id) {
+				ListaEntrada elegido = (ListaEntrada) pariente
+						.getItemAtPosition(posicion);
+
+				CharSequence texto = "Seleccionado: "
+						+ elegido.get_textoDebajo();
+				Toast toast = Toast.makeText(ListaTemasActivity.this, texto,
+						Toast.LENGTH_LONG);
+				toast.show();
+			}
+		});
+
+	}
+
+}
