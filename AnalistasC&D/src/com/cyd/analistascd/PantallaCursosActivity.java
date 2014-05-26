@@ -16,7 +16,7 @@ import android.widget.Toast;
 /**
  * Listado.
  * 
- * @author Ramon Invarato Menéndez www.jarroba.es
+ * @author Ainhoa Suárez Sánchez
  */
 public class PantallaCursosActivity extends Activity {
 
@@ -38,7 +38,7 @@ public class PantallaCursosActivity extends Activity {
 				"Curso de iniciación a la documentoscopia"));
 
 		// lista = (ListView) findViewById(R.id.ListView_listado);
-		lista = (GridView) findViewById(R.id.ListView_listado);
+		lista = (GridView) findViewById(R.id.GridView_listado);
 		lista.setAdapter(new ListaAdaptador(this, R.layout.entrada_cursos, datos) {
 			@Override
 			public void onEntrada(Object entrada, View view) {
