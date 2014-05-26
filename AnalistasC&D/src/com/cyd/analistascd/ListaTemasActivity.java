@@ -3,6 +3,7 @@ package com.cyd.analistascd;
 import java.util.ArrayList;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -72,12 +73,8 @@ public class ListaTemasActivity extends Activity {
 					int posicion, long id) {
 				ListaEntrada elegido = (ListaEntrada) pariente
 						.getItemAtPosition(posicion);
-
-				CharSequence texto = "Seleccionado: "
-						+ elegido.get_textoDebajo();
-				Toast toast = Toast.makeText(ListaTemasActivity.this, texto,
-						Toast.LENGTH_LONG);
-				toast.show();
+				
+				startActivity(new Intent(ListaTemasActivity.this, ContenidoCursoActivity.class));
 			}
 		});
 
