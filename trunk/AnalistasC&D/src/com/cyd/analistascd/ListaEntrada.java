@@ -1,5 +1,9 @@
 package com.cyd.analistascd;
-
+/**
+ * 
+ * @author MAMAEWOK
+ *
+ */
 public class ListaEntrada {
 	private int idImagen; 
 	private String textoEncima; 

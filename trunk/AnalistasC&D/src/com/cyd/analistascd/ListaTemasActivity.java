@@ -12,6 +12,11 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+/**
+ * 
+ * @author MAMAEWOK
+ *
+ */
 public class ListaTemasActivity extends Activity {
 
 	private ListView lista;
