@@ -14,7 +14,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.cyd.analistascd.PantallaCursosActivity"
+            android:name="com.cyd.analistascd.PortadaActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,10 +22,27 @@
             </intent-filter>
         </activity>
         <activity
+            android:name="com.cyd.analistascd.PantallaCursosActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="com.cyd.analistascd.PantallaCursosActivity" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name="com.cyd.analistascd.ListaTemasActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="com.cyd.analistascd.ListaTemasActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.cyd.analistascd.ContenidoCursoActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="com.cyd.analistascd.ContenidoCursoActivity" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
